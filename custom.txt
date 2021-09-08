@@ -1,0 +1,1076 @@
+// Context.fn[6]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[9]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[10]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[11]
+function anonymous(value, field, parent, errors, context) {
+    var origValue = value;
+
+    if (typeof value !== "number" || isNaN(value) || !isFinite(value)) {
+        errors.push({
+            type: "number",
+            message: "The '{field}' field must be a number.",
+            field: field,
+            actual: origValue
+        });
+        return value;
+    }
+
+    if (value % 1 !== 0) {
+        errors.push({
+            type: "numberInteger",
+            message: "The '{field}' field must be an integer.",
+            field: field,
+            actual: origValue
+        });
+    }
+
+    if (value <= 0) {
+        errors.push({
+            type: "numberPositive",
+            message: "The '{field}' field must be a positive number.",
+            field: field,
+            actual: origValue
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[8]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        errors.push({ type: "object", message: "The '{field}' must be an Object.", field: field, actual: value });
+        return value;
+    }
+
+    var parentObj = value;
+    var parentField = field;
+
+    // Field: entities.fulfillments[].items[].itemId
+    field = parentField ? parentField + ".itemId" : "itemId";
+    value = parentObj.itemId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.itemId = context.fn[9](value, field, parentObj, errors, context);
+    }
+
+    const rule9 = context.customs[9];
+    const fnCustomErrors9 = [];
+    parentObj.itemId = rule9.schema.custom.call(
+        this,
+        parentObj.itemId,
+        fnCustomErrors9,
+        rule9.schema,
+        "entities.fulfillments[].items[].itemId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors9)) {
+        fnCustomErrors9.forEach((err) => errors.push(Object.assign({ message: rule9.messages[err.type], field }, err)));
+    }
+
+    // Field: entities.fulfillments[].items[].stockLocationId
+    field = parentField ? parentField + ".stockLocationId" : "stockLocationId";
+    value = parentObj.stockLocationId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.stockLocationId = context.fn[10](value, field, parentObj, errors, context);
+    }
+
+    const rule10 = context.customs[10];
+    const fnCustomErrors10 = [];
+    parentObj.stockLocationId = rule10.schema.custom.call(
+        this,
+        parentObj.stockLocationId,
+        fnCustomErrors10,
+        rule10.schema,
+        "entities.fulfillments[].items[].stockLocationId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors10)) {
+        fnCustomErrors10.forEach((err) =>
+            errors.push(Object.assign({ message: rule10.messages[err.type], field }, err))
+        );
+    }
+
+    // Field: entities.fulfillments[].items[].quantityRequired
+    field = parentField ? parentField + ".quantityRequired" : "quantityRequired";
+    value = parentObj.quantityRequired;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.quantityRequired = context.fn[11](value, field, parentObj, errors, context);
+    }
+
+    field = parentField;
+    var invalidProps = [];
+    var props = Object.keys(parentObj);
+
+    for (let i = 0; i < props.length; i++) {
+        if (["itemId", "stockLocationId", "quantityRequired"].indexOf(props[i]) === -1) {
+            invalidProps.push(props[i]);
+        }
+    }
+    if (invalidProps.length) {
+        errors.push({
+            type: "objectStrict",
+            message: "The object '{field}' contains forbidden keys: '{actual}'.",
+            field: field,
+            expected: "itemId, stockLocationId, quantityRequired",
+            actual: invalidProps.join(", ")
+        });
+    }
+
+    return parentObj;
+}
+
+// Context.fn[7]
+function anonymous(value, field, parent, errors, context) {
+    if (!Array.isArray(value)) {
+        errors.push({ type: "array", message: "The '{field}' field must be an array.", field: field, actual: value });
+        return value;
+    }
+
+    var len = value.length;
+
+    var arr = value;
+    var parentField = field;
+    for (var i = 0; i < arr.length; i++) {
+        value = arr[i];
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            arr[i] = context.fn[8](arr[i], (parentField ? parentField : "") + "[" + i + "]", parent, errors, context);
+        }
+    }
+
+    return arr;
+}
+
+// Context.fn[12]
+function anonymous(value, field, parent, errors, context) {
+    if (value != "delivery")
+        errors.push({
+            type: "equalValue",
+            message: "The '{field}' field value must be equal to '{expected}'.",
+            field: field,
+            expected: "delivery",
+            actual: value
+        });
+
+    return value;
+}
+
+// Context.fn[13]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[5]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        errors.push({ type: "object", message: "The '{field}' must be an Object.", field: field, actual: value });
+        return value;
+    }
+
+    var parentObj = value;
+    var parentField = field;
+
+    // Field: entities.fulfillments[].locationId
+    field = parentField ? parentField + ".locationId" : "locationId";
+    value = parentObj.locationId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.locationId = context.fn[6](value, field, parentObj, errors, context);
+    }
+
+    const rule6 = context.customs[6];
+    const fnCustomErrors6 = [];
+    parentObj.locationId = rule6.schema.custom.call(
+        this,
+        parentObj.locationId,
+        fnCustomErrors6,
+        rule6.schema,
+        "entities.fulfillments[].locationId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors6)) {
+        fnCustomErrors6.forEach((err) => errors.push(Object.assign({ message: rule6.messages[err.type], field }, err)));
+    }
+
+    // Field: entities.fulfillments[].items
+    field = parentField ? parentField + ".items" : "items";
+    value = parentObj.items;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.items = context.fn[7](value, field, parentObj, errors, context);
+    }
+
+    // Field: entities.fulfillments[].method
+    field = parentField ? parentField + ".method" : "method";
+    value = parentObj.method;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.method = context.fn[12](value, field, parentObj, errors, context);
+    }
+
+    // Field: entities.fulfillments[].routeId
+    field = parentField ? parentField + ".routeId" : "routeId";
+    value = parentObj.routeId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.routeId = context.fn[13](value, field, parentObj, errors, context);
+    }
+
+    const rule13 = context.customs[13];
+    const fnCustomErrors13 = [];
+    parentObj.routeId = rule13.schema.custom.call(
+        this,
+        parentObj.routeId,
+        fnCustomErrors13,
+        rule13.schema,
+        "entities.fulfillments[].routeId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors13)) {
+        fnCustomErrors13.forEach((err) =>
+            errors.push(Object.assign({ message: rule13.messages[err.type], field }, err))
+        );
+    }
+
+    field = parentField;
+    var invalidProps = [];
+    var props = Object.keys(parentObj);
+
+    for (let i = 0; i < props.length; i++) {
+        if (["locationId", "items", "method", "routeId"].indexOf(props[i]) === -1) {
+            invalidProps.push(props[i]);
+        }
+    }
+    if (invalidProps.length) {
+        errors.push({
+            type: "objectStrict",
+            message: "The object '{field}' contains forbidden keys: '{actual}'.",
+            field: field,
+            expected: "locationId, items, method, routeId",
+            actual: invalidProps.join(", ")
+        });
+    }
+
+    return parentObj;
+}
+
+// Context.fn[15]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[18]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[19]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "string") {
+        errors.push({ type: "string", message: "The '{field}' field must be a string.", field: field, actual: value });
+        return value;
+    }
+
+    var origValue = value;
+
+    value = value.trim();
+
+    var len = value.length;
+
+    if (len < 1) {
+        errors.push({
+            type: "stringMin",
+            message: "The '{field}' field length must be greater than or equal to {expected} characters long.",
+            field: field,
+            expected: 1,
+            actual: len
+        });
+    }
+
+    if (len > 100) {
+        errors.push({
+            type: "stringMax",
+            message: "The '{field}' field length must be less than or equal to {expected} characters long.",
+            field: field,
+            expected: 100,
+            actual: len
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[20]
+function anonymous(value, field, parent, errors, context) {
+    var origValue = value;
+
+    if (typeof value !== "number" || isNaN(value) || !isFinite(value)) {
+        errors.push({
+            type: "number",
+            message: "The '{field}' field must be a number.",
+            field: field,
+            actual: origValue
+        });
+        return value;
+    }
+
+    if (value % 1 !== 0) {
+        errors.push({
+            type: "numberInteger",
+            message: "The '{field}' field must be an integer.",
+            field: field,
+            actual: origValue
+        });
+    }
+
+    if (value <= 0) {
+        errors.push({
+            type: "numberPositive",
+            message: "The '{field}' field must be a positive number.",
+            field: field,
+            actual: origValue
+        });
+    }
+
+    return value;
+}
+
+// Context.fn[17]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        errors.push({ type: "object", message: "The '{field}' must be an Object.", field: field, actual: value });
+        return value;
+    }
+
+    var parentObj = value;
+    var parentField = field;
+
+    // Field: entities.fulfillments[].items[].itemId
+    field = parentField ? parentField + ".itemId" : "itemId";
+    value = parentObj.itemId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.itemId = context.fn[18](value, field, parentObj, errors, context);
+    }
+
+    const rule18 = context.customs[18];
+    const fnCustomErrors18 = [];
+    parentObj.itemId = rule18.schema.custom.call(
+        this,
+        parentObj.itemId,
+        fnCustomErrors18,
+        rule18.schema,
+        "entities.fulfillments[].items[].itemId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors18)) {
+        fnCustomErrors18.forEach((err) =>
+            errors.push(Object.assign({ message: rule18.messages[err.type], field }, err))
+        );
+    }
+
+    // Field: entities.fulfillments[].items[].stockLocationId
+    field = parentField ? parentField + ".stockLocationId" : "stockLocationId";
+    value = parentObj.stockLocationId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.stockLocationId = context.fn[19](value, field, parentObj, errors, context);
+    }
+
+    const rule19 = context.customs[19];
+    const fnCustomErrors19 = [];
+    parentObj.stockLocationId = rule19.schema.custom.call(
+        this,
+        parentObj.stockLocationId,
+        fnCustomErrors19,
+        rule19.schema,
+        "entities.fulfillments[].items[].stockLocationId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors19)) {
+        fnCustomErrors19.forEach((err) =>
+            errors.push(Object.assign({ message: rule19.messages[err.type], field }, err))
+        );
+    }
+
+    // Field: entities.fulfillments[].items[].quantityRequired
+    field = parentField ? parentField + ".quantityRequired" : "quantityRequired";
+    value = parentObj.quantityRequired;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.quantityRequired = context.fn[20](value, field, parentObj, errors, context);
+    }
+
+    field = parentField;
+    var invalidProps = [];
+    var props = Object.keys(parentObj);
+
+    for (let i = 0; i < props.length; i++) {
+        if (["itemId", "stockLocationId", "quantityRequired"].indexOf(props[i]) === -1) {
+            invalidProps.push(props[i]);
+        }
+    }
+    if (invalidProps.length) {
+        errors.push({
+            type: "objectStrict",
+            message: "The object '{field}' contains forbidden keys: '{actual}'.",
+            field: field,
+            expected: "itemId, stockLocationId, quantityRequired",
+            actual: invalidProps.join(", ")
+        });
+    }
+
+    return parentObj;
+}
+
+// Context.fn[16]
+function anonymous(value, field, parent, errors, context) {
+    if (!Array.isArray(value)) {
+        errors.push({ type: "array", message: "The '{field}' field must be an array.", field: field, actual: value });
+        return value;
+    }
+
+    var len = value.length;
+
+    var arr = value;
+    var parentField = field;
+    for (var i = 0; i < arr.length; i++) {
+        value = arr[i];
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            arr[i] = context.fn[17](arr[i], (parentField ? parentField : "") + "[" + i + "]", parent, errors, context);
+        }
+    }
+
+    return arr;
+}
+
+// Context.fn[21]
+function anonymous(value, field, parent, errors, context) {
+    if (value != "customerPickup")
+        errors.push({
+            type: "equalValue",
+            message: "The '{field}' field value must be equal to '{expected}'.",
+            field: field,
+            expected: "customerPickup",
+            actual: value
+        });
+
+    return value;
+}
+
+// Context.fn[14]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        errors.push({ type: "object", message: "The '{field}' must be an Object.", field: field, actual: value });
+        return value;
+    }
+
+    var parentObj = value;
+    var parentField = field;
+
+    // Field: entities.fulfillments[].locationId
+    field = parentField ? parentField + ".locationId" : "locationId";
+    value = parentObj.locationId;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.locationId = context.fn[15](value, field, parentObj, errors, context);
+    }
+
+    const rule15 = context.customs[15];
+    const fnCustomErrors15 = [];
+    parentObj.locationId = rule15.schema.custom.call(
+        this,
+        parentObj.locationId,
+        fnCustomErrors15,
+        rule15.schema,
+        "entities.fulfillments[].locationId",
+        parent,
+        context
+    );
+    if (Array.isArray(fnCustomErrors15)) {
+        fnCustomErrors15.forEach((err) =>
+            errors.push(Object.assign({ message: rule15.messages[err.type], field }, err))
+        );
+    }
+
+    // Field: entities.fulfillments[].items
+    field = parentField ? parentField + ".items" : "items";
+    value = parentObj.items;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.items = context.fn[16](value, field, parentObj, errors, context);
+    }
+
+    // Field: entities.fulfillments[].method
+    field = parentField ? parentField + ".method" : "method";
+    value = parentObj.method;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.method = context.fn[21](value, field, parentObj, errors, context);
+    }
+
+    field = parentField;
+    var invalidProps = [];
+    var props = Object.keys(parentObj);
+
+    for (let i = 0; i < props.length; i++) {
+        if (["locationId", "items", "method"].indexOf(props[i]) === -1) {
+            invalidProps.push(props[i]);
+        }
+    }
+    if (invalidProps.length) {
+        errors.push({
+            type: "objectStrict",
+            message: "The object '{field}' contains forbidden keys: '{actual}'.",
+            field: field,
+            expected: "locationId, items, method",
+            actual: invalidProps.join(", ")
+        });
+    }
+
+    return parentObj;
+}
+
+// Context.fn[4]
+function anonymous(value, field, parent, errors, context) {
+    var prevErrLen = errors.length;
+    var errBefore;
+    var hasValid = false;
+    var newVal = value;
+
+    if (!hasValid) {
+        errBefore = errors.length;
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            var tmpVal = context.fn[5](value, field, parent, errors, context);
+        }
+
+        if (errors.length == errBefore) {
+            hasValid = true;
+            newVal = tmpVal;
+        }
+    }
+
+    if (!hasValid) {
+        errBefore = errors.length;
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            var tmpVal = context.fn[14](value, field, parent, errors, context);
+        }
+
+        if (errors.length == errBefore) {
+            hasValid = true;
+            newVal = tmpVal;
+        }
+    }
+
+    if (hasValid) {
+        errors.length = prevErrLen;
+    }
+
+    return newVal;
+}
+
+// Context.fn[3]
+function anonymous(value, field, parent, errors, context) {
+    if (!Array.isArray(value)) {
+        errors.push({ type: "array", message: "The '{field}' field must be an array.", field: field, actual: value });
+        return value;
+    }
+
+    var len = value.length;
+
+    var arr = value;
+    var parentField = field;
+    for (var i = 0; i < arr.length; i++) {
+        value = arr[i];
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            arr[i] = context.fn[4](arr[i], (parentField ? parentField : "") + "[" + i + "]", parent, errors, context);
+        }
+    }
+
+    return arr;
+}
+
+// Context.fn[2]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        errors.push({ type: "object", message: "The '{field}' must be an Object.", field: field, actual: value });
+        return value;
+    }
+
+    var parentObj = value;
+    var parentField = field;
+
+    // Field: entities.fulfillments
+    field = parentField ? parentField + ".fulfillments" : "fulfillments";
+    value = parentObj.fulfillments;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.fulfillments = context.fn[3](value, field, parentObj, errors, context);
+    }
+
+    field = parentField;
+    var invalidProps = [];
+    var props = Object.keys(parentObj);
+
+    for (let i = 0; i < props.length; i++) {
+        if (["fulfillments"].indexOf(props[i]) === -1) {
+            invalidProps.push(props[i]);
+        }
+    }
+    if (invalidProps.length) {
+        errors.push({
+            type: "objectStrict",
+            message: "The object '{field}' contains forbidden keys: '{actual}'.",
+            field: field,
+            expected: "fulfillments",
+            actual: invalidProps.join(", ")
+        });
+    }
+
+    return parentObj;
+}
+
+// Context.fn[22]
+function anonymous(value, field, parent, errors, context) {
+    if (!Array.isArray(value)) {
+        errors.push({ type: "array", message: "The '{field}' field must be an array.", field: field, actual: value });
+        return value;
+    }
+
+    var len = value.length;
+
+    var arr = value;
+    var parentField = field;
+    for (var i = 0; i < arr.length; i++) {
+        value = arr[i];
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            var rule = context.rules[2];
+            if (rule.cycleStack.indexOf(value) === -1) {
+                rule.cycleStack.push(value);
+                arr[i] = context.fn[2](
+                    arr[i],
+                    (parentField ? parentField : "") + "[" + i + "]",
+                    parent,
+                    errors,
+                    context
+                );
+                rule.cycleStack.pop(value);
+            }
+        }
+    }
+
+    return arr;
+}
+
+// Context.fn[1]
+function anonymous(value, field, parent, errors, context) {
+    var prevErrLen = errors.length;
+    var errBefore;
+    var hasValid = false;
+    var newVal = value;
+
+    if (!hasValid) {
+        errBefore = errors.length;
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            var tmpVal = context.fn[2](value, field, parent, errors, context);
+        }
+
+        if (errors.length == errBefore) {
+            hasValid = true;
+            newVal = tmpVal;
+        }
+    }
+
+    if (!hasValid) {
+        errBefore = errors.length;
+
+        if (value === undefined) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else if (value === null) {
+            errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+        } else {
+            var tmpVal = context.fn[22](value, field, parent, errors, context);
+        }
+
+        if (errors.length == errBefore) {
+            hasValid = true;
+            newVal = tmpVal;
+        }
+    }
+
+    if (hasValid) {
+        errors.length = prevErrLen;
+    }
+
+    return newVal;
+}
+
+// Context.fn[0]
+function anonymous(value, field, parent, errors, context) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        errors.push({ type: "object", message: "The '{field}' must be an Object.", field: field, actual: value });
+        return value;
+    }
+
+    var parentObj = value;
+    var parentField = field;
+
+    // Field: entities
+    field = parentField ? parentField + ".entities" : "entities";
+    value = parentObj.entities;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        parentObj.entities = context.fn[1](value, field, parentObj, errors, context);
+    }
+
+    field = parentField;
+    var invalidProps = [];
+    var props = Object.keys(parentObj);
+
+    for (let i = 0; i < props.length; i++) {
+        if (["entities"].indexOf(props[i]) === -1) {
+            invalidProps.push(props[i]);
+        }
+    }
+    if (invalidProps.length) {
+        errors.push({
+            type: "objectStrict",
+            message: "The object '{field}' contains forbidden keys: '{actual}'.",
+            field: field,
+            expected: "entities",
+            actual: invalidProps.join(", ")
+        });
+    }
+
+    return parentObj;
+}
+
+// Main check function
+function anonymous(value, context) {
+    var errors = [];
+    var field;
+    var parent = null;
+
+    if (value === undefined) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else if (value === null) {
+        errors.push({ type: "required", message: "The '{field}' field is required.", field: field, actual: value });
+    } else {
+        context.fn[0](value, field, null, errors, context);
+    }
+
+    if (errors.length) {
+        return errors.map((err) => {
+            if (err.message) {
+                err.message = context.utils.replace(err.message, /\{field\}/g, err.field);
+                err.message = context.utils.replace(err.message, /\{expected\}/g, err.expected);
+                err.message = context.utils.replace(err.message, /\{actual\}/g, err.actual);
+            }
+
+            return err;
+        });
+    }
+    return true;
+}
+
